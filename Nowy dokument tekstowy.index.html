@@ -184,7 +184,7 @@
                     <img src="witryna.jpg" alt="Witryna" onclick="openModal('witryna.jpg')">
                     <img src="xx.jpg" alt="XX" onclick="openModal('xx.jpg')">
                     <img src="olej.jpg" alt="Olej" onclick="openModal('olej.jpg')">
-                    <img src="lozkos.jpg" alt="£ó¿ko" onclick="openModal('lozkos.jpg')">
+                    <img src="lozkos.jpg" alt="Â£Ã³Â¿ko" onclick="openModal('lozkos.jpg')">
                     <img src="biurko.jpg" alt="Biurko" onclick="openModal('biurko.jpg')">
                     <img src="biel.jpg" alt="Biel" onclick="openModal('biel.jpg')">
                 </div>
@@ -223,7 +223,7 @@
             <div class="scroll-container" id="renowacje">
                 <div class="images">
                     <img src="skrzypce.jpg" alt="Skrzypce" onclick="openModal('skrzypce.jpg')">
-                    <img src="woz.jpg" alt="Wóz" onclick="openModal('woz.jpg')">
+                    <img src="woz.jpg" alt="WÃ³z" onclick="openModal('woz.jpg')">
                     <img src="gitara.jpg" alt="Gitara" onclick="openModal('gitara.jpg')">
                 </div>
                 <button class="scroll-button left" onclick="scrollLeft('renowacje')">&#10094;</button>
@@ -232,7 +232,7 @@
         </div>
     </div>
 
-    <!-- Modal do powiêkszania zdjêcia -->
+    <!-- Modal do powiÃªkszania zdjÃªcia -->
     <div id="myModal" class="modal" onclick="closeModal(event)">
         <div class="modal-content" id="modalContent">
             <img id="modalImg" src="" alt="">
@@ -244,19 +244,19 @@
         let currentImages = [];
         let currentIndex = 0;
 
-        // Funkcja otwieraj¹ca powiêkszone zdjêcie
+        // Funkcja otwierajÂ¹ca powiÃªkszone zdjÃªcie
         function openModal(src) {
             const modal = document.getElementById('myModal');
             const modalImg = document.getElementById('modalImg');
             modal.style.display = "flex"; // Pokazuje modal
-            modalImg.src = src; // Ustawia Ÿród³o zdjêcia w modalnym oknie
+            modalImg.src = src; // Ustawia ÂŸrÃ³dÂ³o zdjÃªcia w modalnym oknie
 
-            // ZnajdŸ kontener z którego pochodzi zdjêcie i za³aduj wszystkie zdjêcia
+            // ZnajdÂŸ kontener z ktÃ³rego pochodzi zdjÃªcie i zaÂ³aduj wszystkie zdjÃªcia
             currentImages = Array.from(document.querySelector(`#${src.split('.')[0]}.images img`)).map(img => img.src);
             currentIndex = currentImages.indexOf(src);
         }
 
-        // Funkcja zamykaj¹ca modalne okno
+        // Funkcja zamykajÂ¹ca modalne okno
         function closeModal(event) {
             if (event.target === document.getElementById('myModal') || event.target === document.querySelector('.close-btn')) {
                 const modal = document.getElementById('myModal');
@@ -264,33 +264,33 @@
             }
         }
 
-        // Funkcja przewijania zdjêæ w lewo w kontenerach
+        // Funkcja przewijania zdjÃªÃ¦ w lewo w kontenerach
         function scrollLeft(container) {
             const containerElement = document.querySelector(`#${container} .images`);
             const firstChild = containerElement.firstElementChild;
-            containerElement.appendChild(firstChild); // Przenosi pierwsze zdjêcie na koniec
+            containerElement.appendChild(firstChild); // Przenosi pierwsze zdjÃªcie na koniec
         }
 
-        // Funkcja przewijania zdjêæ w prawo w kontenerach
+        // Funkcja przewijania zdjÃªÃ¦ w prawo w kontenerach
         function scrollRight(container) {
             const containerElement = document.querySelector(`#${container} .images`);
             const lastChild = containerElement.lastElementChild;
-            containerElement.prepend(lastChild); // Przenosi ostatnie zdjêcie na pocz¹tek
+            containerElement.prepend(lastChild); // Przenosi ostatnie zdjÃªcie na poczÂ¹tek
         }
 
-        // Funkcja przewijania zdjêæ w lewo w modalu
+        // Funkcja przewijania zdjÃªÃ¦ w lewo w modalu
         function scrollLeftModal() {
             currentIndex = (currentIndex === 0) ? currentImages.length - 1 : currentIndex - 1;
             document.getElementById('modalImg').src = currentImages[currentIndex];
         }
 
-        // Funkcja przewijania zdjêæ w prawo w modalu
+        // Funkcja przewijania zdjÃªÃ¦ w prawo w modalu
         function scrollRightModal() {
             currentIndex = (currentIndex === currentImages.length - 1) ? 0 : currentIndex + 1;
             document.getElementById('modalImg').src = currentImages[currentIndex];
         }
 
-        // Funkcje do przewijania za pomoc¹ klawiatury
+        // Funkcje do przewijania za pomocÂ¹ klawiatury
         window.addEventListener('keydown', function (event) {
             if (document.getElementById('myModal').style.display === "flex") {
                 if (event.key === "ArrowLeft") {
