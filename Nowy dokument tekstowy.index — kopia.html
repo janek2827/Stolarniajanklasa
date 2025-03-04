@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stolarnia Jan Klasa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Choco+Cooky&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: sans-serif; /* Zwyk³a czcionka dla tekstów */
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background-color: #f5e6cc;
+            padding: 10px;
+        }
+        .tab {
+            margin: 0 15px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+            background: none;
+        }
+        .tab:hover {
+            text-decoration: underline;
+        }
+        .content {
+            display: none;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .active {
+            display: block;
+        }
+        #realizacje {
+            background: url('tlo.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding: 40px;
+        }
+        #zamowienie {
+            background: url('detal.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding: 40px;
+        }
+        #kontakt {
+            background: url('biurko.jpg') no-repeat center center;
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+            padding: 40px;
+        }
+        .container {
+            background-color: #d9b88c;
+            border: 2px solid black;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+        h1, h2 {
+            font-family: 'Choco Cooky', cursive; /* Czcionka dla tytu³ów */
+            background-color: #f5e6cc;
+            padding: 10px;
+            margin: 0;
+        }
+        img {
+            height: 200px;
+            width: auto;
+            cursor: pointer;
+            margin: 10px;
+        }
+        #realizacje p, #zamowienie p, #kontakt p {
+            background-color: #f5e6cc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            overflow: hidden;
+        }
+        .fullscreen img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            cursor: pointer;
+            touch-action: none;
+        }
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 20px;
+        }
+        .nav-arrow.left { left: 10px; }
+        .nav-arrow.right { right: 10px; }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 30px;
+            color: white;
+            background: rgba(0, 0, 0, 0.6);
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Stolarnia Jan Klasa</h1>
+    <div class="tabs">
+        <button class="tab" onclick="showTab('realizacje')">Realizacje</button>
+        <button class="tab" onclick="showTab('zamowienie')">Skladanie zamowienia</button>
+        <button class="tab" onclick="showTab('kontakt')">Kontakt</button>
+    </div>
+    
+    <div id="realizacje" class="content active">
+        <div class="container" id="realizacje-container">
+            <h2>Schody</h2>
+            <p>Zajmuje sie wykonanywaniem schodow z drewna litego na beton lub samonosnych. Z montazem i pomiarem, jest tez mozliwosc samego przygotowania elementow do samodzielnego montazu. W zakladce "skladanie zamowienia" powyzej mozna zobaczyc mozliwosci kolorystyczne oraz dostepne wykonczenia.</p>
+            <img src="balustrada.jpg" alt="balustrada" onclick="openFullscreen(this.src, 'realizacje')">
+            <img src="jesion.jpg" alt="jesion" onclick="openFullscreen(this.src, 'realizacje')">
+            <img src="szkl.jpg" alt="szkl" onclick="openFullscreen(this.src, 'realizacje')">
+            <img src="god.jpg" alt="god" onclick="openFullscreen(this.src, 'realizacje')">
+            <img src="detal.jpg" alt="detal" onclick="openFullscreen(this.src, 'realizacje')">
+            <img src="ost.jpg" alt="ost" onclick="openFullscreen(this.src, 'realizacje')">
+        </div>
+        <div class="container" id="meble-container">
+            <h2>Meble</h2>
+            <p>W wiekszosci zajmuje sie wykonywaniem przeroznych projektow mebli, od malych stolikow po wieksze szafy i komody. Istnieje mozliwosc wykonania indywidualnego pomyslu wedlug zdjecia lub szkicu, choc mozna tez zamowic to co znajdziecie na ponizszych zdjeciach.</p>
+            <img src="olej.jpg" alt="olej" onclick="openFullscreen(this.src, 'meble')">
+            <img src="komoda.jpg" alt="komoda" onclick="openFullscreen(this.src, 'meble')">
+            <img src="lozkos.jpg" alt="lozkos" onclick="openFullscreen(this.src, 'meble')">
+            <img src="biurko.jpg" alt="biurko" onclick="openFullscreen(this.src, 'meble')">
+            <img src="biel.jpg" alt="biel" onclick="openFullscreen(this.src, 'meble')">
+            <img src="witryna.jpg" alt="witryna" onclick="openFullscreen(this.src, 'meble')">
+            <img src="szafka.jpg" alt="szafka" onclick="openFullscreen(this.src, 'meble')">
+            <img src="stolik.jpg" alt="stolik" onclick="openFullscreen(this.src, 'meble')">
+        </div>
+        <div class="container" id="renowacje-container">
+            <h2>Renowacje</h2>
+            <p>Trafiaja tez do warsztatu tematy, ktorymi rownie chetnie sie zajmuje - renowacje i rekonstrukcje przedmiotu, ktory juz ktos wykonal, ale potrzeba go odnowic lub odtworzyc od zera ze zdjecia.</p>
+            <img src="woz.jpg" alt="woz" onclick="openFullscreen(this.src, 'renowacje')">
+            <img src="skrzypce.jpg" alt="skrzypce" onclick="openFullscreen(this.src, 'renowacje')">
+            <img src="gitara.jpg" alt="gitara" onclick="openFullscreen(this.src, 'renowacje')">
+        </div>
+        <div class="container" id="zabawki-container">
+            <h2>Zabawki</h2>
+            <p>Za zabawki zabralem sie calkiem niedawno, poki co w ofercie nie ma zbyt wielu propozycji, sa m. in. traktor, kombajn, przyczepa jedno i dwu osiowa, presa, rozrzutnik, laweta, baloty, siewnik, ciagnik z ladowacze, czolowym. Planowane sa jeszcze kolejne zabawki ;).</p>
+            <img src="traktor.jpg" alt="traktor" onclick="openFullscreen(this.src, 'zabawki')">
+        </div>
+        <div class="container" id="inne-container">
+            <h2>Inne</h2>
+            <p>Tutaj przedstawiam kilka roznych przedmiotow, ktore do tej pory zrealizowalem.</p>
+            <img src="kije.jpg" alt="kije" onclick="openFullscreen(this.src, 'inne')">
+        </div>
+    </div>
+    
+    <div id="zamowienie" class="content">
+        <div class="container">
+            <h2>Skladanie zamowienia</h2>
+            <p>Tutaj beda zamieszczone instrukcje i porady w jaki sposob mozna zlozyc zamowienie.</p>
+            <p>Tez beda zdjecia oraz ich opis dotyczacy metod wykonczenia drewna, na przyklad malowaniem, piaskowaniem, kryciem calkowitym, olejowaniem, woskowaniem czy tez mozliwoscia pozostawienia surowego wyrobu. W tym miejscu rowniez beda informacje dotyczace mozliwych detali przy schodach takich jak balustrada czy cokoliki, lub ksztalt poreczy.</p>
+        </div>
+    </div>
+    
+    <div id="kontakt" class="content">
+        <div class="container">
+            <h2>Kontakt</h2>
+            <p>Kontakt do mnie od poniedzialku do piatku pod numerem<br>
+            <strong>504603717</strong><br>
+            jak rowniez pod adresem email<br>
+            <strong>jan.klasa.stolarz@gmail.com</strong><br>
+            Mozna tez mnie odwiedzic pod adresem <strong>83-400 Nowy Klincz ul. Debowa 5</strong>, po uprzednim umowieniu sie telefonicznie.</p>
+            <p>Serdecznie pozdrawiam i zapraszam do kontaktu ;D<br>Jan Klasa</p>
+        </div>
+    </div>
+    
+    <script>
+        function showTab(tabName) {
+            let contents = document.querySelectorAll('.content');
+            contents.forEach(content => content.classList.remove('active'));
+            document.getElementById(tabName).classList.add('active');
+        }
+
+        function openFullscreen(imgSrc, containerId) {
+            currentContainer = containerId;
+            let container = document.getElementById(containerId);
+            let images = Array.from(container.querySelectorAll('img')).map(img => img.src);
+            currentImageIndex = images.indexOf(imgSrc);
+            let fullscreenDiv = document.createElement('div');
+            fullscreenDiv.classList.add('fullscreen');
+            fullscreenDiv.innerHTML = `
+                <button class="close-btn" onclick="closeFullscreen()">×</button>
+                <button class="nav-arrow left" onclick="changeImage(-1)">&#9665;</button>
+                <img src="${imgSrc}">
+                <button class="nav-arrow right" onclick="changeImage(1)">&#9655;</button>
+            `;
+            document.body.appendChild(fullscreenDiv);
+        }
+
+        function closeFullscreen() {
+            let fullscreenDiv = document.querySelector('.fullscreen');
+            if (fullscreenDiv) {
+                fullscreenDiv.remove();
+            }
+        }
+
+        function changeImage(direction) {
+            let container = document.getElementById(currentContainer);
+            let images = Array.from(container.querySelectorAll('img')).map(img => img.src);
+            currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
+            document.querySelector('.fullscreen img').src = images[currentImageIndex];
+        }
+    </script>
+</body>
+</html>
